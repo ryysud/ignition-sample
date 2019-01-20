@@ -1,0 +1,40 @@
+{
+  "ignition": {
+    "config": {},
+    "security": {
+      "tls": {}
+    },
+    "timeouts": {},
+    "version": "2.2.0"
+  },
+  "networkd": {},
+  "passwd": {
+    "users": [
+      {
+        "name": "hello-ignition"
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "filesystem": "root",
+        "path": "/opt/bin/hello-ignition",
+        "contents": {
+          "source": "data:,%23!%2Fusr%2Fbin%2Fenv%20bash%0Awhile%20true%20%3B%20do%0A%20%20echo%20'Hello%2C%20Igninition!'%0A%20%20sleep%201%0Adone%0A",
+          "verification": {}
+        },
+        "mode": 493
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Hello Ignition\n\n[Service]\nExecStart=/opt/bin/hello-ignition\nRestart=always\nType=simple\nUser=hello-ignition\nGroup=hello-ignition\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enable": true,
+        "name": "hello-ignition.service"
+      }
+    ]
+  }
+}

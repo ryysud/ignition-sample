@@ -1,0 +1,9 @@
+# For Vagrant
+.vagrant
+
+# For coreos-vagrant
+*.img
+*.vmdk
+
+# For dev
+cl-config/ignition-config.json.merged

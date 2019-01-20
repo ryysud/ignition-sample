@@ -1,0 +1,34 @@
+storage:
+  files:
+    - path: /opt/bin/hello-ignition
+      filesystem: root
+      mode: 0755
+      contents:
+        inline: |
+          #!/usr/bin/env bash
+          while true ; do
+            echo 'Hello, Igninition!'
+            sleep 1
+          done
+
+systemd:
+  units:
+    - name: hello-ignition.service
+      enable: true
+      contents: |
+        [Unit]
+        Description=Hello Ignition
+
+        [Service]
+        ExecStart=/opt/bin/hello-ignition
+        Restart=always
+        Type=simple
+        User=hello-ignition
+        Group=hello-ignition
+
+        [Install]
+        WantedBy=multi-user.target
+
+passwd:
+  users:
+    - name: hello-ignition
