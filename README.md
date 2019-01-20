@@ -19,3 +19,7 @@ Run Container Linux VM
 ```bash
 $ vagrant up
 ```
+
+## Note
+
+I created Vagranfile based on [coreos/coreos-vagrant](https://github.com/coreos/coreos-vagrant) .
