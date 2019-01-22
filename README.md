@@ -2,6 +2,13 @@
 
 This is a repository to understand ignition.
 
+## Requirements
+
+- VirtualBox
+- Vagrant
+- Config Transpiler
+- vagrant-ignition
+
 ## Usage
 
 Edit Container Linux Config file.
