@@ -1,6 +1,6 @@
 # ignition-sample
 
-This is a repository to understand ignition.
+This repository is used to understand ignition.
 
 ## Requirements
 
